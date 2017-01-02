@@ -92,11 +92,16 @@
 				messagingSenderId: "100857287027"
 			};
 			firebase.initializeApp(config);
+			
+			console.log('-------');
+			console.log(firebase.database().ref('data/message'));
+			console.log('-------');
+			
 		  
 		  
 			// Get a reference to the database service
 			//var database = firebase.database();
-			var message = firebase.database().ref('message');
+			var message = firebase.database().ref('data/message');
 			message.on('value', function(snapshot) {
 				var headerElm = document.getElementById('header');
 				headerElm.innerHTML = snapshot.val();
