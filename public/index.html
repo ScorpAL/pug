@@ -71,6 +71,8 @@
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnLogout" style="display: none;">
 			  Logout
 			</button>
+			
+			<h3 id="adm"></h3>
 		  
 		  </main>
 		</div>
@@ -105,6 +107,12 @@
 			message.on('value', function(snapshot) {
 				var headerElm = document.getElementById('header');
 				headerElm.innerHTML = snapshot.val();
+			});
+			
+			var admM = firebase.database().ref('bar/hello');
+			admM.on('value', function(snapshot) {
+				var admElm = document.getElementById('adm');
+				admElm.innerHTML = snapshot.val();
 			});
 			
 			var btnLogin = document.getElementById('btnLogin');
